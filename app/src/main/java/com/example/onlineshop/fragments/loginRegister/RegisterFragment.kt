@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.example.onlineshop.R
 import com.example.onlineshop.data.User
 import com.example.onlineshop.databinding.FragmentRegisterBinding
 import com.example.onlineshop.util.RegisterValidation
@@ -40,6 +42,10 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.textViewDoYouHaveAnAccount.setOnClickListener {
+            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+        }
+
         binding.apply {
             buttonRegister.setOnClickListener {
                 val user = User(
@@ -62,12 +68,12 @@ class RegisterFragment : Fragment() {
 
                     is Success -> {
                         Log.d("test", it.data.toString())
-                        binding.buttonRegister.startAnimation()
+                        binding.buttonRegister.revertAnimation()
                     }
 
                     is Error -> {
                         Log.e(TAG, it.message.toString())
-                        binding.buttonRegister.startAnimation()
+                        binding.buttonRegister.revertAnimation()
                     }
 
                     else -> Unit
