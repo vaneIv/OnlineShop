@@ -92,7 +92,7 @@ object Libs {
 }
 
 object ConfigVersions {
-    val compileSdkVersion = 33
+    val compileSdkVersion = 34
     val minSdkVersion = 21
-    val targetSdkVersion = 33
+    val targetSdkVersion = 34
 }
