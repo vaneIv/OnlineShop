@@ -97,6 +97,8 @@ dependencies {
 
     //Firebase
     implementation(Libs.firebase)
+    // Firebase Firestore
+    implementation("com.google.firebase:firebase-firestore:24.9.1")
     // Firebase BoM
     implementation(Libs.firebaseBom)
     // Firebase auth
