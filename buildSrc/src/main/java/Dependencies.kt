@@ -69,6 +69,7 @@ object Libs {
     //Dagger - Hilt
     val hilt = "com.google.dagger:hilt-android:${Versions.hiltVersion}"
     val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hiltVersion}"
+    //val hiltCompiler = "com.google.dagger:hilt-compiler:${Versions.hiltVersion}"
 
     //implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
     val androidxHiltCompiler = "androidx.hilt:hilt-compiler:${Versions.androidxHiltCompiler}"
