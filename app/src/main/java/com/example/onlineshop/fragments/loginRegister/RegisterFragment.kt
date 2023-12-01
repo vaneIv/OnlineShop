@@ -10,12 +10,15 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.onlineshop.data.User
 import com.example.onlineshop.databinding.FragmentRegisterBinding
+import com.example.onlineshop.util.RegisterValidation
 import com.example.onlineshop.util.Resource
 import com.example.onlineshop.util.Resource.*
 import com.example.onlineshop.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 const val TAG = "RegisterFragment"
 
@@ -68,6 +71,28 @@ class RegisterFragment : Fragment() {
                     }
 
                     else -> Unit
+                }
+            }
+        }
+
+        lifecycleScope.launch {
+            viewModel.validation.collect { validation ->
+                if (validation.email is RegisterValidation.Failed) {
+                    withContext(Dispatchers.Main) {
+                        binding.editTextEmailRegister.apply {
+                            requestFocus()
+                            error = validation.email.message
+                        }
+                    }
+                }
+
+                if (validation.password is RegisterValidation.Failed) {
+                    withContext(Dispatchers.Main) {
+                        binding.editTextPassword.apply {
+                            requestFocus()
+                            error = validation.password.message
+                        }
+                    }
                 }
             }
         }
