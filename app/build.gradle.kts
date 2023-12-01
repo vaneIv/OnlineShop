@@ -5,6 +5,7 @@ plugins {
     id("kotlin-parcelize")
     id("com.google.dagger.hilt.android")
     id("androidx.navigation.safeargs.kotlin")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -68,6 +69,9 @@ dependencies {
     // Material design
     implementation(Libs.material_design)
 
+    // Constraint layout
+    implementation(Libs.constraintLayout)
+
     // Architectural components
     implementation(Libs.viewmodelKtx)
     implementation(Libs.livedataKtx)
@@ -89,15 +93,15 @@ dependencies {
     // Dagger - Hilt
     implementation(Libs.hilt)
     implementation(Libs.hiltCompiler)
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.10.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     kapt(Libs.androidxHiltCompiler)
 
     //Firebase
     implementation(Libs.firebase)
     // Firebase BoM
     implementation(Libs.firebaseBom)
+    // Firebase auth
+    implementation("com.google.firebase:firebase-auth:22.3.0")
+    // implementation(Libs.firebaseAuth)
 
     // Glide
     implementation(Libs.glide)

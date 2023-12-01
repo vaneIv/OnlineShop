@@ -9,6 +9,7 @@ object Versions {
     val lifecycleVersion = "2.6.1"
     val loadingButtonVersion = "2.2.0"
     val coroutinesVersion = "1.7.1"
+    val constraintlayoutVersion = "2.1.4"
     val circularImageVersion = "3.1.0"
     val dexMakerVersion = "2.28.1"
     val fragmentVersion = "1.5.7"
@@ -35,6 +36,9 @@ object Libs {
     val recyclerview = "androidx.recyclerview:recyclerview:${Versions.recyclerViewVersion}"
     val androidx_annotations = "androidx.annotation:annotation:${Versions.androidXAnnotations}"
     val androidx_legacy = "androidx.legacy:legacy-support-v4:${Versions.androidXLegacySupport}"
+
+    // Constraint layout
+    val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayoutVersion}"
 
     // Material Design
     val material_design = "com.google.android.material:material:${Versions.materialVersion}"
@@ -73,6 +77,8 @@ object Libs {
     val firebase = "com.google.firebase:firebase-auth:${Versions.firebase}"
     // Firebase Bom
     val firebaseBom = "com.google.firebase:firebase-bom:${Versions.firebaseBom}"
+    // Firebase auth
+    val firebaseAuth = "com.google.firebase:firebase-auth:${Versions.firebase}"
 
     // Glide
     val glide = "com.github.bumptech.glide:glide:${Versions.glideVersion}"
