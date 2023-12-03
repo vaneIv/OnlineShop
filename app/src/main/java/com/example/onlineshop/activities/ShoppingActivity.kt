@@ -17,7 +17,7 @@ class ShoppingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_shopping)
+        setContentView(binding.root)
 
         val navController = findNavController(R.id.shopping_nav_host_fragment)
         binding.bottomNavigation.setupWithNavController(navController)
