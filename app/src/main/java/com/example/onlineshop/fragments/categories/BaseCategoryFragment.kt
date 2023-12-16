@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +14,7 @@ import com.example.onlineshop.R
 import com.example.onlineshop.adapters.BestProductsAdapter
 import com.example.onlineshop.databinding.FragmentBaseCategoryBinding
 import com.example.onlineshop.databinding.FragmentMainCategoryBinding
+import com.example.onlineshop.util.showBottomNavigationView
 
 open class BaseCategoryFragment : Fragment(R.layout.fragment_base_category) {
 
@@ -36,6 +38,16 @@ open class BaseCategoryFragment : Fragment(R.layout.fragment_base_category) {
 
         setupOfferRecyclerView()
         setupBestProductsRecyclerView()
+
+        bestProductsAdapter.onClick = {
+            val extras = Bundle().apply { putParcelable("product", it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment, extras)
+        }
+
+        offerAdapter.onClick = {
+            val extras = Bundle().apply { putParcelable("product", it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment, extras)
+        }
 
         binding.recyclerViewOfferProducts.addOnScrollListener(object :
             RecyclerView.OnScrollListener() {
@@ -93,5 +105,11 @@ open class BaseCategoryFragment : Fragment(R.layout.fragment_base_category) {
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             adapter = offerAdapter
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        showBottomNavigationView()
     }
 }

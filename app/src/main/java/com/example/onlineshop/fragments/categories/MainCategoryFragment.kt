@@ -10,14 +10,17 @@ import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.onlineshop.R
 import com.example.onlineshop.adapters.BestDealsAdapter
 import com.example.onlineshop.adapters.BestProductsAdapter
 import com.example.onlineshop.adapters.SpecialProductsAdapter
+import com.example.onlineshop.data.Product
 import com.example.onlineshop.databinding.FragmentMainCategoryBinding
 import com.example.onlineshop.util.Resource
+import com.example.onlineshop.util.showBottomNavigationView
 import com.example.onlineshop.viewmodel.MainCategoryViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -52,6 +55,21 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
         setupSpecialProductRv()
         setupBestDealsRv()
         setupBestProductsRv()
+
+        specialProductAdapter.onClick = {
+            val extras = Bundle().apply { putParcelable("product", it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment, extras)
+        }
+
+        bestDealsAdapter.onClick = {
+            val extras = Bundle().apply { putParcelable("product", it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment, extras)
+        }
+
+        bestProductsAdapter.onClick = {
+            val extras = Bundle().apply { putParcelable("product", it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment, extras)
+        }
 
         lifecycleScope.launch {
             viewModel.specialProducts.collectLatest {
@@ -162,5 +180,11 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             adapter = specialProductAdapter
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        showBottomNavigationView()
     }
 }

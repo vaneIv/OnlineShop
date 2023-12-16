@@ -1,5 +1,6 @@
 package com.example.onlineshop.adapters
 
+import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +30,8 @@ class ColorsAdapter : Adapter<ColorsAdapter.ColorsViewHolder>() {
         ViewHolder(binding.root) {
 
         fun bind(color: Int, position: Int) {
+            val imageDrawable = ColorDrawable(color)
+            binding.imageColor.setImageDrawable(imageDrawable)
             if (position == selectedPosition) {//Color is selected
                 binding.apply {
                     imageShadow.visibility = View.VISIBLE
