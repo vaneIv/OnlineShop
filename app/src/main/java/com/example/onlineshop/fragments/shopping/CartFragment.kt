@@ -45,7 +45,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
 
         setupRecyclerView()
 
-
+        var totalPrice = 0f
 
         lifecycleScope.launch {
             viewModel.cartProducts.collectLatest {
@@ -79,6 +79,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
         lifecycleScope.launch {
             viewModel.productPrice.collectLatest { price ->
                 price?.let {
+                    totalPrice = it
                     binding.textViewTotalPrice.text = "$ $price"
                 }
             }
@@ -114,6 +115,14 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
 
         cartAdapter.onMinusClick = {
             viewModel.changeQuantity(it, FirebaseCommon.QuantityChanging.DECREASE)
+        }
+
+        binding.buttonCheckout.setOnClickListener {
+            val action = CartFragmentDirections.actionCartFragmentToBillingFragment(
+                totalPrice,
+                cartAdapter.differ.currentList.toTypedArray()
+            )
+            findNavController().navigate(action)
         }
     }
 
