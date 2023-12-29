@@ -85,6 +85,9 @@ dependencies {
     // Coroutines
     implementation(Libs.coroutines)
     implementation(Libs.coroutinesCore)
+    // implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3")
+    implementation(Libs.playServicesCoroutines)
+
 
     // Navigation components
     implementation(Libs.navigationFragmentKtx)
@@ -99,11 +102,12 @@ dependencies {
     implementation(Libs.firebase)
     // Firebase Firestore
     implementation("com.google.firebase:firebase-firestore:24.9.1")
+    // Firebase storage
+    implementation("com.google.firebase:firebase-storage:20.3.0")
     // Firebase BoM
     implementation(Libs.firebaseBom)
     // Firebase auth
     implementation("com.google.firebase:firebase-auth:22.3.0")
-    // implementation(Libs.firebaseAuth)
 
     // Glide
     implementation(Libs.glide)

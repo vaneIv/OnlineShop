@@ -19,6 +19,7 @@ object Versions {
     val hiltVersion = "2.44"
     val materialVersion = "1.9.0"
     val navigationVersion = "2.6.0"
+    val playServicesCoroutinesVersion = "1.7.3"
     val recyclerViewVersion = "1.3.0"
     val rulesVersion = "1.0.1"
     val stepViewVersion = "1.5.1"
@@ -38,7 +39,8 @@ object Libs {
     val androidx_legacy = "androidx.legacy:legacy-support-v4:${Versions.androidXLegacySupport}"
 
     // Constraint layout
-    val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayoutVersion}"
+    val constraintLayout =
+        "androidx.constraintlayout:constraintlayout:${Versions.constraintlayoutVersion}"
 
     // Material Design
     val material_design = "com.google.android.material:material:${Versions.materialVersion}"
@@ -60,6 +62,7 @@ object Libs {
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
     val coroutinesCore =
         "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesVersion}"
+    val playServicesCoroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${Versions.playServicesCoroutinesVersion}"
 
     // Navigation Components
     val navigationFragmentKtx =
@@ -76,8 +79,10 @@ object Libs {
 
     // Firebase
     val firebase = "com.google.firebase:firebase-auth:${Versions.firebase}"
+
     // Firebase Bom
     val firebaseBom = "com.google.firebase:firebase-bom:${Versions.firebaseBom}"
+
     // Firebase auth
     val firebaseAuth = "com.google.firebase:firebase-auth:${Versions.firebase}"
 
@@ -86,7 +91,8 @@ object Libs {
     val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glideVersion}"
 
     // Viewpager2 indicator
-    val viewPagerIndicator = "io.github.vejei.viewpagerindicator:viewpagerindicator:${Versions.viewPagerIndicatorVersion}"
+    val viewPagerIndicator =
+        "io.github.vejei.viewpagerindicator:viewpagerindicator:${Versions.viewPagerIndicatorVersion}"
 
     //StepView
     val stepView = "com.shuhart.stepview:stepview:${Versions.stepViewVersion}"
