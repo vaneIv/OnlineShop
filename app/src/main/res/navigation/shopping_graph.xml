@@ -81,4 +81,9 @@
         android:name="com.example.onlineshop.fragments.settings.UserAccountFragment"
         android:label="UserAccountFragment"
         tools:layout="@layout/fragment_user_account" />
+    <fragment
+        android:id="@+id/ordersFragment"
+        android:name="com.example.onlineshop.fragments.settings.OrdersFragment"
+        android:label="OrdersFragment"
+        tools:layout="@layout/fragment_orders"/>
 </navigation>
