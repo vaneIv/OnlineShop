@@ -32,6 +32,10 @@ class OrdersAdapter : RecyclerView.Adapter<OrdersAdapter.OrdersViewHolder>() {
     override fun onBindViewHolder(holder: OrdersViewHolder, position: Int) {
         val order = differ.currentList[position]
         holder.bind(order)
+
+        holder.itemView.setOnClickListener {
+            onClick?.invoke(order)
+        }
     }
 
     private val diffUtil = object : DiffUtil.ItemCallback<Order>() {
