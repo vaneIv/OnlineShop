@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -69,6 +70,10 @@ class OrderDetailsFragment : Fragment() {
             textViewPhoneNumber.text = order.address.phone
 
             textViewTotalPrice.text = "$ ${order.totalPrice}"
+
+            imageViewCloseOrder.setOnClickListener {
+                findNavController().navigateUp()
+            }
         }
 
         billingProductsAdapter.differ.submitList(order.products)
